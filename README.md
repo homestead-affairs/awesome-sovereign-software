@@ -31,6 +31,15 @@ Every entry must pass **all five**:
 Open source is strongly preferred. Proprietary software is admitted only when the data format is
 fully open and everything else passes — and it is always marked.
 
+**Communication apps get a sharper version of criterion 2**, because otherwise every messenger
+argues its way in on the strength of its encryption. The question is concrete: *does it still work
+between two people in the same room with the internet switched off?* Briar (Bluetooth, Wi-Fi) and
+Tox (LAN discovery) pass. Relay-based messengers do not — however good the cryptography, and however
+easy the relay is to self-host. This turns an argument about how much you trust an operator into a
+test you can actually run. It applies only to apps whose purpose is carrying messages between
+people; apps that merely fetch from the network, like an app store or a feed reader, are judged on
+the five criteria alone.
+
 ## Legend
 
 - `LICENSE` — software license (proprietary entries marked `Proprietary`)
@@ -242,10 +251,16 @@ Models you run on your own hardware. No API key, no per-token bill, no transcrip
 
 ## Messaging
 
+Messengers that still work with the internet switched off — two devices in one room, talking over
+Bluetooth, Wi-Fi, or the local network. Encrypted relay messengers are deliberately absent: the
+cryptography may be excellent, but a relay you do not run is still someone else's server.
+
 - [Briar](https://briarproject.org/) `GPL-3.0` 🔁 — Peer-to-peer encrypted messaging over Tor, Wi-Fi, or Bluetooth; no server and no phone number.
   - *Exit: nothing ever leaves your device to reclaim — there is no server-side you to delete.*
 - [Jami](https://jami.net/) `GPL-3.0` 🔁 — Distributed calls and messaging; your "account" is a keypair generated on your device.
   - *Exit: back up the keypair as a file and move it to any device.*
+- [qTox](https://github.com/TokTok/qTox) (the maintained TokTok fork) `GPL-3.0-or-later` 🔁 — Encrypted messaging, calls, and file transfer over the serverless Tox protocol; on a LAN it needs no internet at all.
+  - *Exit: your identity is a local keypair you can back up and carry; no account and no server-side copy exist.*
 
 ## Email, Calendar & Contacts
 

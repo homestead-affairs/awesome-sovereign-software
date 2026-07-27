@@ -1,0 +1,29 @@
+# Sovereignty regressions, on the record.
+#
+# An app that stops passing the Sovereignty Test moves out of apps.yaml and into
+# this file. It does not silently vanish — scripts/check_removals.py fails CI on
+# any entry that disappears from apps.yaml without a record here.
+#
+# Delisting fields:
+#   name       the entry's name, exactly as it appeared in apps.yaml
+#   delisted   YYYY-MM the regression was recorded
+#   reason     one sentence: what broke, and which criterion it now fails
+#   source     link documenting the regression — release notes, changelog, issue.
+#              Prefer a permanent or archived URL: this record is meant to outlive
+#              the project, and a delisting without evidence is just hearsay.
+#   relisted   optional YYYY-MM, if the regression was reversed
+#   restored   optional one sentence: what changed to earn the entry back
+#
+# A relisted app keeps its record. The point of this section is the history, so
+# nothing is ever deleted from it — an app that returns is also re-added to
+# apps.yaml, and carries its scar here.
+
+delisted: []
+
+# Entries renamed rather than delisted. Recorded so the removal check can tell a
+# rename from a disappearance, and so the old name stays findable.
+#
+#   - from: Old Name
+#     to: New Name
+
+renames: []

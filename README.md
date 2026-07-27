@@ -384,12 +384,15 @@ The rules:
 
 Sovereignty regressions, on the record. When an app stops passing the test — an account wall
 appears, core features move behind a subscription, an acquisition changes the data story — it
-moves here with a date and a reason instead of silently vanishing. Apps can earn their way back
-by reversing the regression.
+moves here with a date, a reason, and a source instead of silently vanishing. Apps can earn
+their way back by reversing the regression, and the record of the regression stays.
 
-Format: `**Name** — delisted YYYY-MM: reason.`
+This is enforced, not merely promised: removing an entry without accounting for it fails CI.
+See [delisting an entry](CONTRIBUTING.md#delisting-an-entry).
 
+<!-- DELISTED:START -->
 *Nothing yet. When it happens, it will be recorded here.*
+<!-- DELISTED:END -->
 
 ## Contributing
 

@@ -93,27 +93,27 @@ to cancel — and an exit plan when you outgrow it.
 <!-- APPS:START -->
 ## Notes & Knowledge
 
-- [Obsidian](https://obsidian.md/) `Proprietary` 📄 — Markdown knowledge base over a folder of plain-text files on your disk. Huge plugin ecosystem. Optional paid sync exists but is never required.
-  - *Exit: your vault already is the export — a folder of Markdown any editor can open.*
-- [Logseq](https://logseq.com/) `AGPL-3.0` 📄 — Outliner and daily journal on local Markdown/Org files, with backlinks and a graph view.
-  - *Exit: plain Markdown/Org files in a folder; take them anywhere.*
-- [Joplin](https://joplinapp.org/) `AGPL-3.0` 🔁 — Notes and to-dos with end-to-end encrypted sync to targets you control (filesystem, WebDAV, your own server).
-  - *Exit: export everything to raw Markdown or the documented JEX archive.*
-- [Zettlr](https://www.zettlr.com/) `GPL-3.0` 📄 — Markdown editor built for academic writing: Zettelkasten workflows, citations, exports.
-  - *Exit: it edits plain Markdown files in place — there is nothing to export.*
-- [Trilium Notes](https://github.com/TriliumNext/Trilium) `AGPL-3.0` 🗃️ — Hierarchical knowledge base in a local database, with scripting and optional self-hosted sync.
-  - *Exit: full-tree export to Markdown or HTML; the database itself is a local SQLite file.*
 - [Anytype](https://anytype.io/) `Source-available` 🔁 — Local-first, end-to-end encrypted workspaces; identity is a keyphrase you hold, not an account.
   - *Exit: export any space to Markdown or JSON from the app.*
+- [Joplin](https://joplinapp.org/) `AGPL-3.0` 🔁 — Notes and to-dos with end-to-end encrypted sync to targets you control (filesystem, WebDAV, your own server).
+  - *Exit: export everything to raw Markdown or the documented JEX archive.*
+- [Logseq](https://logseq.com/) `AGPL-3.0` 📄 — Outliner and daily journal on local Markdown/Org files, with backlinks and a graph view.
+  - *Exit: plain Markdown/Org files in a folder; take them anywhere.*
+- [Obsidian](https://obsidian.md/) `Proprietary` 📄 — Markdown knowledge base over a folder of plain-text files on your disk. Huge plugin ecosystem. Optional paid sync exists but is never required.
+  - *Exit: your vault already is the export — a folder of Markdown any editor can open.*
+- [Trilium Notes](https://github.com/TriliumNext/Trilium) `AGPL-3.0` 🗃️ — Hierarchical knowledge base in a local database, with scripting and optional self-hosted sync.
+  - *Exit: full-tree export to Markdown or HTML; the database itself is a local SQLite file.*
+- [Zettlr](https://www.zettlr.com/) `GPL-3.0` 📄 — Markdown editor built for academic writing: Zettelkasten workflows, citations, exports.
+  - *Exit: it edits plain Markdown files in place — there is nothing to export.*
 
 ## Tasks & Productivity
 
-- [Taskwarrior](https://taskwarrior.org/) `MIT` 📄 — Command-line task manager storing tasks in local data files; scriptable and fast.
-  - *Exit: data files are plain text, and `task export` emits JSON.*
-- [Super Productivity](https://super-productivity.com/) `MIT` 🔁 — To-dos, time tracking, and break reminders; local data with optional sync via WebDAV or file providers you choose.
-  - *Exit: one-click full backup/export to JSON.*
 - [Loop Habit Tracker](https://github.com/iSoron/uhabits) `GPL-3.0` 📵 — Android habit tracker with charts and reminders; fully offline.
   - *Exit: full history export to CSV.*
+- [Super Productivity](https://super-productivity.com/) `MIT` 🔁 — To-dos, time tracking, and break reminders; local data with optional sync via WebDAV or file providers you choose.
+  - *Exit: one-click full backup/export to JSON.*
+- [Taskwarrior](https://taskwarrior.org/) `MIT` 📄 — Command-line task manager storing tasks in local data files; scriptable and fast.
+  - *Exit: data files are plain text, and `task export` emits JSON.*
 
 ## Finance
 
@@ -139,21 +139,21 @@ to cancel — and an exit plan when you outgrow it.
 
 ## Files, Sync & Backup
 
-- [Syncthing](https://syncthing.net/) `MPL-2.0` 🔁 — Continuous peer-to-peer file sync between your own devices. No server, no account, no cloud.
-  - *Exit: your files stay ordinary files in ordinary folders; stop the app and keep everything.*
+- [BorgBackup](https://www.borgbackup.org/) `BSD-3-Clause` — Deduplicating, encrypted, compression-friendly backup archives you own end to end.
+  - *Exit: `borg extract` back to plain files; documented archive format.*
 - [LocalSend](https://localsend.org/) `MIT` 📵 — Cross-platform AirDrop alternative over your local network; no internet, no account.
   - *Exit: nothing is stored; files land wherever you saved them.*
 - [restic](https://restic.net/) `BSD-2-Clause` — Encrypted, deduplicated backups to local disks or any storage you control; your keys, open repository format.
   - *Exit: `restic restore` back to plain files; the repo format is documented, with independent implementations.*
-- [BorgBackup](https://www.borgbackup.org/) `BSD-3-Clause` — Deduplicating, encrypted, compression-friendly backup archives you own end to end.
-  - *Exit: `borg extract` back to plain files; documented archive format.*
+- [Syncthing](https://syncthing.net/) `MPL-2.0` 🔁 — Continuous peer-to-peer file sync between your own devices. No server, no account, no cloud.
+  - *Exit: your files stay ordinary files in ordinary folders; stop the app and keep everything.*
 
 ## Maps & Navigation
 
-- [Organic Maps](https://organicmaps.app/) `Apache-2.0` 📵 — Offline maps and turn-by-turn navigation from OpenStreetMap data; no account, no tracking, no ads.
-  - *Exit: bookmarks and tracks export as KML/GPX — open standards every maps app reads.*
 - [CoMaps](https://www.comaps.app/) `Apache-2.0` 📵 — Community-governed fork of Organic Maps with the same offline-first, no-tracking stance.
   - *Exit: same open KML/GPX export as its parent.*
+- [Organic Maps](https://organicmaps.app/) `Apache-2.0` 📵 — Offline maps and turn-by-turn navigation from OpenStreetMap data; no account, no tracking, no ads.
+  - *Exit: bookmarks and tracks export as KML/GPX — open standards every maps app reads.*
 - [OsmAnd](https://osmand.net/) `GPL-3.0` 📵 — Deeply detailed offline OpenStreetMap browser and navigator for mobile.
   - *Exit: favorites and tracks export as GPX.*
 
@@ -187,19 +187,19 @@ Keep what matters playable forever — in formats that don't need anyone's permi
 
 ## Drawing & Diagrams
 
-- [Excalidraw](https://excalidraw.com/) `MIT` — Virtual whiteboard that works offline in the browser with no login; collaboration is optional and end-to-end encrypted.
-  - *Exit: scenes save to local `.excalidraw` JSON, or export as SVG/PNG.*
 - [draw.io Desktop](https://github.com/jgraph/drawio-desktop) `Apache-2.0` 📵 — The diagrams.net editor as an offline desktop app working on local files.
   - *Exit: diagrams are XML files (optionally embedded in PNG/SVG) — readable and diff-able.*
+- [Excalidraw](https://excalidraw.com/) `MIT` — Virtual whiteboard that works offline in the browser with no login; collaboration is optional and end-to-end encrypted.
+  - *Exit: scenes save to local `.excalidraw` JSON, or export as SVG/PNG.*
 - [Xournal++](https://xournalpp.github.io/) `GPL-2.0-or-later` 📵 — Handwritten notes, PDF annotation, and sketching with stylus support.
   - *Exit: `.xopp` files are gzipped XML; PDF export built in.*
 
 ## Photos
 
-- [digiKam](https://www.digikam.org/) `GPL-2.0-or-later` 📵 — Professional photo management over your local library: tagging, faces, search.
-  - *Exit: photos remain ordinary files; tags and metadata can be written into them as standard XMP/EXIF.*
 - [darktable](https://www.darktable.org/) `GPL-3.0` 📵 — Raw photo developing and cataloguing; a darkroom that runs on your machine.
   - *Exit: originals are never touched; edits live in XMP sidecar files next to your photos.*
+- [digiKam](https://www.digikam.org/) `GPL-2.0-or-later` 📵 — Professional photo management over your local library: tagging, faces, search.
+  - *Exit: photos remain ordinary files; tags and metadata can be written into them as standard XMP/EXIF.*
 - [RawTherapee](https://www.rawtherapee.com/) `GPL-3.0` 📵 — Raw photo developer with fine-grained tone and colour control; your originals are never modified.
   - *Exit: edits live in `.pp3` sidecar files beside untouched originals; export to TIFF, JPEG, or PNG.*
 
@@ -254,10 +254,10 @@ client survives even when the company behind your inbox doesn't.
 
 - [DAVx⁵](https://www.davx5.com/) `GPL-3.0` 🔁 — CalDAV/CardDAV sync for Android; point your contacts and calendars at any server you choose.
   - *Exit: everything lives in standard vCard and iCalendar on a server you picked; repoint anytime.*
-- [Thunderbird for Android (K-9 Mail)](https://k9mail.app/) `Apache-2.0` — Mail client for any IMAP provider; no vendor account, no lock-in to the app.
-  - *Exit: mail stays on the provider you chose; settings export; switch clients freely.*
 - [Thunderbird](https://www.thunderbird.net/) `MPL-2.0` — Desktop email, calendar, and contacts with a local archive, from any provider.
   - *Exit: mail is stored locally in open mbox/Maildir; copy the profile folder and it all comes with you.*
+- [Thunderbird for Android (K-9 Mail)](https://k9mail.app/) `Apache-2.0` — Mail client for any IMAP provider; no vendor account, no lock-in to the app.
+  - *Exit: mail stays on the provider you chose; settings export; switch clients freely.*
 
 ## Phone & Wearables
 

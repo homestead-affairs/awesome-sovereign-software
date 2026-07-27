@@ -21,10 +21,19 @@ jobs:
         with:
           # 429 = rate-limited, not dead; GitHub anchors are checked by lychee natively.
           # Excluded hosts return 403 to CI crawlers regardless of link health (bot walls).
+          #
+          # Concurrency, timeout, and retry-wait are tuned against false alarms rather
+          # than for speed. lychee defaults to 128 parallel requests, which is enough to
+          # make a slow-but-healthy host time out on a shared runner — the sweep was
+          # failing intermittently on exactly that, and a link checker nobody trusts is
+          # one nobody reads. Slower and quiet beats fast and crying wolf.
           args: >-
             --no-progress
             --accept 200..=206,429
+            --max-concurrency 16
+            --timeout 30
             --max-retries 3
+            --retry-wait-time 2
             --exclude '^https://dl\.acm\.org'
             --exclude '^https://[^/]*substack\.com'
             README.md CONTRIBUTING.md

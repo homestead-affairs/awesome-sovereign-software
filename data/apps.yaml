@@ -15,63 +15,63 @@
 categories:
   - name: Notes & Knowledge
     apps:
-      - name: Obsidian
-        url: https://obsidian.md/
-        license: Proprietary
-        badges: [plain-files]
-        description: "Markdown knowledge base over a folder of plain-text files on your disk. Huge plugin ecosystem. Optional paid sync exists but is never required."
-        exit: "your vault already is the export — a folder of Markdown any editor can open."
-      - name: Logseq
-        url: https://logseq.com/
-        license: AGPL-3.0
-        badges: [plain-files]
-        description: "Outliner and daily journal on local Markdown/Org files, with backlinks and a graph view."
-        exit: "plain Markdown/Org files in a folder; take them anywhere."
-      - name: Joplin
-        url: https://joplinapp.org/
-        license: AGPL-3.0
-        badges: [sync]
-        description: "Notes and to-dos with end-to-end encrypted sync to targets you control (filesystem, WebDAV, your own server)."
-        exit: "export everything to raw Markdown or the documented JEX archive."
-      - name: Zettlr
-        url: https://www.zettlr.com/
-        license: GPL-3.0
-        badges: [plain-files]
-        description: "Markdown editor built for academic writing: Zettelkasten workflows, citations, exports."
-        exit: "it edits plain Markdown files in place — there is nothing to export."
-      - name: Trilium Notes
-        url: https://github.com/TriliumNext/Trilium
-        license: AGPL-3.0
-        badges: [open-db]
-        description: "Hierarchical knowledge base in a local database, with scripting and optional self-hosted sync."
-        exit: "full-tree export to Markdown or HTML; the database itself is a local SQLite file."
       - name: Anytype
         url: https://anytype.io/
         license: Source-available
         badges: [sync]
         description: "Local-first, end-to-end encrypted workspaces; identity is a keyphrase you hold, not an account."
         exit: "export any space to Markdown or JSON from the app."
+      - name: Joplin
+        url: https://joplinapp.org/
+        license: AGPL-3.0
+        badges: [sync]
+        description: "Notes and to-dos with end-to-end encrypted sync to targets you control (filesystem, WebDAV, your own server)."
+        exit: "export everything to raw Markdown or the documented JEX archive."
+      - name: Logseq
+        url: https://logseq.com/
+        license: AGPL-3.0
+        badges: [plain-files]
+        description: "Outliner and daily journal on local Markdown/Org files, with backlinks and a graph view."
+        exit: "plain Markdown/Org files in a folder; take them anywhere."
+      - name: Obsidian
+        url: https://obsidian.md/
+        license: Proprietary
+        badges: [plain-files]
+        description: "Markdown knowledge base over a folder of plain-text files on your disk. Huge plugin ecosystem. Optional paid sync exists but is never required."
+        exit: "your vault already is the export — a folder of Markdown any editor can open."
+      - name: Trilium Notes
+        url: https://github.com/TriliumNext/Trilium
+        license: AGPL-3.0
+        badges: [open-db]
+        description: "Hierarchical knowledge base in a local database, with scripting and optional self-hosted sync."
+        exit: "full-tree export to Markdown or HTML; the database itself is a local SQLite file."
+      - name: Zettlr
+        url: https://www.zettlr.com/
+        license: GPL-3.0
+        badges: [plain-files]
+        description: "Markdown editor built for academic writing: Zettelkasten workflows, citations, exports."
+        exit: "it edits plain Markdown files in place — there is nothing to export."
 
   - name: Tasks & Productivity
     apps:
-      - name: Taskwarrior
-        url: https://taskwarrior.org/
-        license: MIT
-        badges: [plain-files]
-        description: "Command-line task manager storing tasks in local data files; scriptable and fast."
-        exit: "data files are plain text, and `task export` emits JSON."
-      - name: Super Productivity
-        url: https://super-productivity.com/
-        license: MIT
-        badges: [sync]
-        description: "To-dos, time tracking, and break reminders; local data with optional sync via WebDAV or file providers you choose."
-        exit: "one-click full backup/export to JSON."
       - name: Loop Habit Tracker
         url: https://github.com/iSoron/uhabits
         license: GPL-3.0
         badges: [offline]
         description: "Android habit tracker with charts and reminders; fully offline."
         exit: "full history export to CSV."
+      - name: Super Productivity
+        url: https://super-productivity.com/
+        license: MIT
+        badges: [sync]
+        description: "To-dos, time tracking, and break reminders; local data with optional sync via WebDAV or file providers you choose."
+        exit: "one-click full backup/export to JSON."
+      - name: Taskwarrior
+        url: https://taskwarrior.org/
+        license: MIT
+        badges: [plain-files]
+        description: "Command-line task manager storing tasks in local data files; scriptable and fast."
+        exit: "data files are plain text, and `task export` emits JSON."
 
   - name: Finance
     apps:
@@ -129,12 +129,11 @@ categories:
 
   - name: Files, Sync & Backup
     apps:
-      - name: Syncthing
-        url: https://syncthing.net/
-        license: MPL-2.0
-        badges: [sync]
-        description: "Continuous peer-to-peer file sync between your own devices. No server, no account, no cloud."
-        exit: "your files stay ordinary files in ordinary folders; stop the app and keep everything."
+      - name: BorgBackup
+        url: https://www.borgbackup.org/
+        license: BSD-3-Clause
+        description: "Deduplicating, encrypted, compression-friendly backup archives you own end to end."
+        exit: "`borg extract` back to plain files; documented archive format."
       - name: LocalSend
         url: https://localsend.org/
         license: MIT
@@ -146,26 +145,27 @@ categories:
         license: BSD-2-Clause
         description: "Encrypted, deduplicated backups to local disks or any storage you control; your keys, open repository format."
         exit: "`restic restore` back to plain files; the repo format is documented, with independent implementations."
-      - name: BorgBackup
-        url: https://www.borgbackup.org/
-        license: BSD-3-Clause
-        description: "Deduplicating, encrypted, compression-friendly backup archives you own end to end."
-        exit: "`borg extract` back to plain files; documented archive format."
+      - name: Syncthing
+        url: https://syncthing.net/
+        license: MPL-2.0
+        badges: [sync]
+        description: "Continuous peer-to-peer file sync between your own devices. No server, no account, no cloud."
+        exit: "your files stay ordinary files in ordinary folders; stop the app and keep everything."
 
   - name: Maps & Navigation
     apps:
-      - name: Organic Maps
-        url: https://organicmaps.app/
-        license: Apache-2.0
-        badges: [offline]
-        description: "Offline maps and turn-by-turn navigation from OpenStreetMap data; no account, no tracking, no ads."
-        exit: "bookmarks and tracks export as KML/GPX — open standards every maps app reads."
       - name: CoMaps
         url: https://www.comaps.app/
         license: Apache-2.0
         badges: [offline]
         description: "Community-governed fork of Organic Maps with the same offline-first, no-tracking stance."
         exit: "same open KML/GPX export as its parent."
+      - name: Organic Maps
+        url: https://organicmaps.app/
+        license: Apache-2.0
+        badges: [offline]
+        description: "Offline maps and turn-by-turn navigation from OpenStreetMap data; no account, no tracking, no ads."
+        exit: "bookmarks and tracks export as KML/GPX — open standards every maps app reads."
       - name: OsmAnd
         url: https://osmand.net/
         license: GPL-3.0
@@ -238,17 +238,17 @@ categories:
 
   - name: Drawing & Diagrams
     apps:
-      - name: Excalidraw
-        url: https://excalidraw.com/
-        license: MIT
-        description: "Virtual whiteboard that works offline in the browser with no login; collaboration is optional and end-to-end encrypted."
-        exit: "scenes save to local `.excalidraw` JSON, or export as SVG/PNG."
       - name: draw.io Desktop
         url: https://github.com/jgraph/drawio-desktop
         license: Apache-2.0
         badges: [offline]
         description: "The diagrams.net editor as an offline desktop app working on local files."
         exit: "diagrams are XML files (optionally embedded in PNG/SVG) — readable and diff-able."
+      - name: Excalidraw
+        url: https://excalidraw.com/
+        license: MIT
+        description: "Virtual whiteboard that works offline in the browser with no login; collaboration is optional and end-to-end encrypted."
+        exit: "scenes save to local `.excalidraw` JSON, or export as SVG/PNG."
       - name: Xournal++
         url: https://xournalpp.github.io/
         license: GPL-2.0-or-later
@@ -258,18 +258,18 @@ categories:
 
   - name: Photos
     apps:
-      - name: digiKam
-        url: https://www.digikam.org/
-        license: GPL-2.0-or-later
-        badges: [offline]
-        description: "Professional photo management over your local library: tagging, faces, search."
-        exit: "photos remain ordinary files; tags and metadata can be written into them as standard XMP/EXIF."
       - name: darktable
         url: https://www.darktable.org/
         license: GPL-3.0
         badges: [offline]
         description: "Raw photo developing and cataloguing; a darkroom that runs on your machine."
         exit: "originals are never touched; edits live in XMP sidecar files next to your photos."
+      - name: digiKam
+        url: https://www.digikam.org/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Professional photo management over your local library: tagging, faces, search."
+        exit: "photos remain ordinary files; tags and metadata can be written into them as standard XMP/EXIF."
       - name: RawTherapee
         url: https://www.rawtherapee.com/
         license: GPL-3.0
@@ -384,16 +384,16 @@ categories:
         badges: [sync]
         description: "CalDAV/CardDAV sync for Android; point your contacts and calendars at any server you choose."
         exit: "everything lives in standard vCard and iCalendar on a server you picked; repoint anytime."
-      - name: Thunderbird for Android (K-9 Mail)
-        url: https://k9mail.app/
-        license: Apache-2.0
-        description: "Mail client for any IMAP provider; no vendor account, no lock-in to the app."
-        exit: "mail stays on the provider you chose; settings export; switch clients freely."
       - name: Thunderbird
         url: https://www.thunderbird.net/
         license: MPL-2.0
         description: "Desktop email, calendar, and contacts with a local archive, from any provider."
         exit: "mail is stored locally in open mbox/Maildir; copy the profile folder and it all comes with you."
+      - name: Thunderbird for Android (K-9 Mail)
+        url: https://k9mail.app/
+        license: Apache-2.0
+        description: "Mail client for any IMAP provider; no vendor account, no lock-in to the app."
+        exit: "mail stays on the provider you chose; settings export; switch clients freely."
 
   - name: Phone & Wearables
     intro: "Your pocket and wrist, without a vendor cloud."

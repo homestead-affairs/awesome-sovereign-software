@@ -5,6 +5,10 @@ The README's category table-of-contents and app listings live between
 marker comments and are overwritten by this script; everything outside
 the markers is hand-written and left alone.
 
+Entries must be alphabetical within their category. That is checked in both
+modes and is a hard error, so the ordering rule in CONTRIBUTING.md cannot
+quietly drift out of true again.
+
 Usage:
     python scripts/generate.py           # rewrite README.md in place
     python scripts/generate.py --check   # exit 1 if README.md is out of sync (CI)
@@ -60,6 +64,27 @@ def render_apps(cats: list) -> str:
     return "\n".join(lines).rstrip()
 
 
+def check_order(cats: list) -> None:
+    """Exit with a diff-style report if any category is not alphabetical.
+
+    Sorting is case-insensitive so that lowercase-styled names (darktable,
+    restic, draw.io) sort by spelling rather than by capitalisation.
+    """
+    problems = []
+    for c in cats:
+        names = [a["name"] for a in c["apps"]]
+        expected = sorted(names, key=str.lower)
+        if names != expected:
+            problems.append((c["name"], names, expected))
+
+    if problems:
+        for name, got, want in problems:
+            print(f"error: {name} is not in alphabetical order", file=sys.stderr)
+            print(f"           is: {', '.join(got)}", file=sys.stderr)
+            print(f"       should: {', '.join(want)}", file=sys.stderr)
+        sys.exit("entries must be alphabetical within their category — see CONTRIBUTING.md")
+
+
 def splice(text: str, start: str, end: str, payload: str) -> str:
     pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
     if not pattern.search(text):
@@ -74,6 +99,7 @@ def main() -> None:
     args = parser.parse_args()
 
     cats = yaml.safe_load(DATA.read_text(encoding="utf-8"))["categories"]
+    check_order(cats)
     text = README.read_text(encoding="utf-8")
     new = splice(text, TOC_START, TOC_END, render_toc(cats))
     new = splice(new, APPS_START, APPS_END, render_apps(cats))

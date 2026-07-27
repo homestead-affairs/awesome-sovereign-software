@@ -7,7 +7,10 @@ read it before opening a pull request.
 
 - **One app per pull request.** Small PRs get reviewed fast; batches stall.
 - **Fill in the checklist** in the PR template. Every criterion, honestly. "Mostly" is a no.
-- **Alphabetical order** within each category.
+- **Alphabetical order** within each category, compared case-insensitively — so `darktable`
+  sorts before `digiKam`, and `draw.io Desktop` before `Excalidraw`. The generator refuses to
+  run if an entry is out of place and prints where it belongs, so you find out before a
+  reviewer has to tell you.
 - **No self-promotion without disclosure.** Submitting your own project is welcome — say so in
   the PR, and it will be marked in the entry like the existing disclosed entries.
 - Removals and corrections are as valuable as additions. If an app added an account wall,

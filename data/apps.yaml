@@ -359,6 +359,10 @@ categories:
         exit: "models are GGUF-based files on disk, reusable with other runners; no personal data held."
 
   - name: Messaging
+    intro: |-
+      Messengers that still work with the internet switched off — two devices in one room, talking over
+      Bluetooth, Wi-Fi, or the local network. Encrypted relay messengers are deliberately absent: the
+      cryptography may be excellent, but a relay you do not run is still someone else's server.
     apps:
       - name: Briar
         url: https://briarproject.org/
@@ -372,6 +376,13 @@ categories:
         badges: [sync]
         description: "Distributed calls and messaging; your \"account\" is a keypair generated on your device."
         exit: "back up the keypair as a file and move it to any device."
+      - name: qTox
+        url: https://github.com/TokTok/qTox
+        suffix: "(the maintained TokTok fork)"
+        license: GPL-3.0-or-later
+        badges: [sync]
+        description: "Encrypted messaging, calls, and file transfer over the serverless Tox protocol; on a LAN it needs no internet at all."
+        exit: "your identity is a local keypair you can back up and carry; no account and no server-side copy exist."
 
   - name: Email, Calendar & Contacts
     intro: |-

@@ -200,6 +200,8 @@ Keep what matters playable forever — in formats that don't need anyone's permi
   - *Exit: photos remain ordinary files; tags and metadata can be written into them as standard XMP/EXIF.*
 - [darktable](https://www.darktable.org/) `GPL-3.0` 📵 — Raw photo developing and cataloguing; a darkroom that runs on your machine.
   - *Exit: originals are never touched; edits live in XMP sidecar files next to your photos.*
+- [RawTherapee](https://www.rawtherapee.com/) `GPL-3.0` 📵 — Raw photo developer with fine-grained tone and colour control; your originals are never modified.
+  - *Exit: edits live in `.pp3` sidecar files beside untouched originals; export to TIFF, JPEG, or PNG.*
 
 ## Creative Tools
 
@@ -222,6 +224,10 @@ Professional creative work with no subscription meter running and no cloud betwe
 
 - [Anki](https://apps.ankiweb.net/) `AGPL-3.0` 🔁 — Spaced-repetition flashcards; decks are local, and the optional AnkiWeb sync is free, not required.
   - *Exit: export decks as `.apkg` or plain text; the collection is a local SQLite file.*
+- [Kiwix](https://kiwix.org/) `GPL-3.0-or-later` 📵 — Read all of Wikipedia, Stack Exchange, or Project Gutenberg with no connection at all; the library sits on your disk.
+  - *Exit: content is ZIM, an openly specified archive format with independent readers; the files are yours.*
+- [Mnemosyne](https://mnemosyne-proj.org/) `AGPL-3.0` 🗃️ — Spaced-repetition flashcards backed by a long-running memory research project; the data donation is opt-in and off by default.
+  - *Exit: the collection is a local SQLite database, with tab-separated text and XML export built in.*
 
 ## Local AI
 
@@ -268,9 +274,17 @@ Your pocket and wrist, without a vendor cloud.
 
 - [LibreOffice](https://www.libreoffice.org/) `MPL-2.0` 📵 — The full office suite on open document formats. The original sovereign software.
   - *Exit: ODF is an ISO standard readable by every major office suite.*
+- [Okular](https://okular.kde.org/) `GPL-2.0-or-later` 📵 — Universal document viewer and annotator for PDF, EPUB, DjVu, and comics; it never converts or moves your files.
+  - *Exit: annotations save as native PDF annotations that any reader can open.*
+- [Zotero](https://www.zotero.org/) `AGPL-3.0` 🗃️ — Reference manager and PDF annotator; the library is a local SQLite database plus a folder of your files, sync strictly optional.
+  - *Exit: export the library as CSL JSON, BibTeX, or RIS; attachments stay ordinary files in the data directory.*
 
 ## Suites & Stores
 
+- [F-Droid](https://f-droid.org/) `GPL-3.0` — Android app store for free software: no account, no tracking, reproducible builds, and repositories anyone can host.
+  - *Exit: installed apps are ordinary signed APKs that keep working; the repo index is an open format you can mirror or self-host.*
+- [Obtainium](https://github.com/ImranR98/Obtainium) `GPL-3.0` — Installs and updates Android apps straight from each developer's own release page — no store in the middle at all.
+  - *Exit: your app list exports to a JSON file; the apps are plain APKs installed by Android, not held by Obtainium.*
 - [SAFE App Store](https://github.com/rudi193-cmd/safe-app-store) `Various` 📄 🗃️ — Local-first app suite where every app declares its permissions and data flows in a manifest before install. *Disclosure: maintained by this list's author.*
   - *Exit: each app keeps its data in local SQLite or plain files under your home directory.*
 <!-- APPS:END -->

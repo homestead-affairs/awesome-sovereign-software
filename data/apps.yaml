@@ -270,6 +270,12 @@ categories:
         badges: [offline]
         description: "Raw photo developing and cataloguing; a darkroom that runs on your machine."
         exit: "originals are never touched; edits live in XMP sidecar files next to your photos."
+      - name: RawTherapee
+        url: https://www.rawtherapee.com/
+        license: GPL-3.0
+        badges: [offline]
+        description: "Raw photo developer with fine-grained tone and colour control; your originals are never modified."
+        exit: "edits live in `.pp3` sidecar files beside untouched originals; export to TIFF, JPEG, or PNG."
 
   - name: Creative Tools
     intro: "Professional creative work with no subscription meter running and no cloud between you and your files."
@@ -319,6 +325,18 @@ categories:
         badges: [sync]
         description: "Spaced-repetition flashcards; decks are local, and the optional AnkiWeb sync is free, not required."
         exit: "export decks as `.apkg` or plain text; the collection is a local SQLite file."
+      - name: Kiwix
+        url: https://kiwix.org/
+        license: GPL-3.0-or-later
+        badges: [offline]
+        description: "Read all of Wikipedia, Stack Exchange, or Project Gutenberg with no connection at all; the library sits on your disk."
+        exit: "content is ZIM, an openly specified archive format with independent readers; the files are yours."
+      - name: Mnemosyne
+        url: https://mnemosyne-proj.org/
+        license: AGPL-3.0
+        badges: [open-db]
+        description: "Spaced-repetition flashcards backed by a long-running memory research project; the data donation is opt-in and off by default."
+        exit: "the collection is a local SQLite database, with tab-separated text and XML export built in."
 
   - name: Local AI
     intro: "Models you run on your own hardware. No API key, no per-token bill, no transcript leaving your machine."
@@ -406,9 +424,31 @@ categories:
         badges: [offline]
         description: "The full office suite on open document formats. The original sovereign software."
         exit: "ODF is an ISO standard readable by every major office suite."
+      - name: Okular
+        url: https://okular.kde.org/
+        license: GPL-2.0-or-later
+        badges: [offline]
+        description: "Universal document viewer and annotator for PDF, EPUB, DjVu, and comics; it never converts or moves your files."
+        exit: "annotations save as native PDF annotations that any reader can open."
+      - name: Zotero
+        url: https://www.zotero.org/
+        license: AGPL-3.0
+        badges: [open-db]
+        description: "Reference manager and PDF annotator; the library is a local SQLite database plus a folder of your files, sync strictly optional."
+        exit: "export the library as CSL JSON, BibTeX, or RIS; attachments stay ordinary files in the data directory."
 
   - name: Suites & Stores
     apps:
+      - name: F-Droid
+        url: https://f-droid.org/
+        license: GPL-3.0
+        description: "Android app store for free software: no account, no tracking, reproducible builds, and repositories anyone can host."
+        exit: "installed apps are ordinary signed APKs that keep working; the repo index is an open format you can mirror or self-host."
+      - name: Obtainium
+        url: https://github.com/ImranR98/Obtainium
+        license: GPL-3.0
+        description: "Installs and updates Android apps straight from each developer's own release page — no store in the middle at all."
+        exit: "your app list exports to a JSON file; the apps are plain APKs installed by Android, not held by Obtainium."
       - name: SAFE App Store
         url: https://github.com/rudi193-cmd/safe-app-store
         license: Various

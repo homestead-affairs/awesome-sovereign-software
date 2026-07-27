@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Generate the app sections of README.md from data/apps.yaml.
+"""Generate the app sections of README.md from data/apps.yaml and data/delisted.yaml.
 
-The README's category table-of-contents and app listings live between
-marker comments and are overwritten by this script; everything outside
-the markers is hand-written and left alone.
+The README's category table-of-contents, app listings, and delisting record live
+between marker comments and are overwritten by this script; everything outside the
+markers is hand-written and left alone.
 
-Entries must be alphabetical within their category. That is checked in both
-modes and is a hard error, so the ordering rule in CONTRIBUTING.md cannot
-quietly drift out of true again.
+Entries must be alphabetical within their category. That is checked in both modes
+and is a hard error, so the ordering rule in CONTRIBUTING.md cannot quietly drift
+out of true again.
+
+The companion check — that no entry leaves apps.yaml without a delisting record —
+lives in check_removals.py, because it needs to compare against another revision.
 
 Usage:
     python scripts/generate.py           # rewrite README.md in place
@@ -23,10 +26,14 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "README.md"
 DATA = ROOT / "data" / "apps.yaml"
+DELISTED = ROOT / "data" / "delisted.yaml"
 
 BADGES = {"plain-files": "📄", "open-db": "🗃️", "offline": "📵", "sync": "🔁"}
 TOC_START, TOC_END = "<!-- TOC:APPS:START -->", "<!-- TOC:APPS:END -->"
 APPS_START, APPS_END = "<!-- APPS:START -->", "<!-- APPS:END -->"
+DELISTED_START, DELISTED_END = "<!-- DELISTED:START -->", "<!-- DELISTED:END -->"
+
+EMPTY_DELISTED = "*Nothing yet. When it happens, it will be recorded here.*"
 
 
 def slug(name: str) -> str:
@@ -62,6 +69,52 @@ def render_apps(cats: list) -> str:
             lines.append(f"  - *Exit: {a['exit']}*")
         lines.append("")
     return "\n".join(lines).rstrip()
+
+
+def render_delisted(records: list) -> str:
+    """Render the delisting record, newest first.
+
+    A relisted app keeps its entry rather than being deleted — the history is the
+    whole point of the section, so a reversal is appended, never a removal.
+    """
+    if not records:
+        return EMPTY_DELISTED
+
+    lines = []
+    for d in sorted(records, key=lambda r: str(r["delisted"]), reverse=True):
+        line = f"- **{d['name']}** — delisted {d['delisted']}: {d['reason']}"
+        if d.get("source"):
+            line += f" ([source]({d['source']}))"
+        if d.get("relisted"):
+            line += f" **Relisted {d['relisted']}:** {d['restored']}"
+        lines.append(line)
+    return "\n".join(lines)
+
+
+def check_delisted(records: list) -> None:
+    """Reject records that cannot carry their own weight.
+
+    A delisting is a public claim about someone else's project, and the badge rule
+    makes it consequential, so the fields that make it checkable are mandatory.
+    """
+    problems = []
+    for i, d in enumerate(records):
+        where = d.get("name") or f"entry {i + 1}"
+        for field in ("name", "delisted", "reason", "source"):
+            if not d.get(field):
+                problems.append(f"{where}: missing required field '{field}'")
+        if d.get("delisted") and not re.fullmatch(r"\d{4}-\d{2}", str(d["delisted"])):
+            problems.append(f"{where}: 'delisted' must be YYYY-MM, got {d['delisted']!r}")
+        if d.get("relisted"):
+            if not re.fullmatch(r"\d{4}-\d{2}", str(d["relisted"])):
+                problems.append(f"{where}: 'relisted' must be YYYY-MM, got {d['relisted']!r}")
+            if not d.get("restored"):
+                problems.append(f"{where}: 'relisted' requires 'restored' saying what changed")
+
+    if problems:
+        for p in problems:
+            print(f"error: {p}", file=sys.stderr)
+        sys.exit("delisting records are incomplete — see CONTRIBUTING.md")
 
 
 def check_order(cats: list) -> None:
@@ -100,18 +153,23 @@ def main() -> None:
 
     cats = yaml.safe_load(DATA.read_text(encoding="utf-8"))["categories"]
     check_order(cats)
+    records = yaml.safe_load(DELISTED.read_text(encoding="utf-8"))["delisted"] or []
+    check_delisted(records)
+
     text = README.read_text(encoding="utf-8")
     new = splice(text, TOC_START, TOC_END, render_toc(cats))
     new = splice(new, APPS_START, APPS_END, render_apps(cats))
+    new = splice(new, DELISTED_START, DELISTED_END, render_delisted(records))
 
     if args.check:
         if new != text:
-            sys.exit("README.md is out of sync with data/apps.yaml — run: python scripts/generate.py")
+            sys.exit("README.md is out of sync with the data files — run: python scripts/generate.py")
         print("README.md is in sync.")
     else:
         README.write_text(new, encoding="utf-8")
         n_apps = sum(len(c["apps"]) for c in cats)
-        print(f"README.md regenerated: {len(cats)} categories, {n_apps} apps.")
+        print(f"README.md regenerated: {len(cats)} categories, {n_apps} apps, "
+              f"{len(records)} delisted.")
 
 
 if __name__ == "__main__":

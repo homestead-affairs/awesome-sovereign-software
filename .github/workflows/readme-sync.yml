@@ -13,9 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The removal check diffs the roster against the PR's base commit, which
+          # a shallow clone does not contain.
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
       - run: pip install pyyaml
-      - name: Verify README.md matches data/apps.yaml
+      - name: Verify README.md matches the data files
         run: python scripts/generate.py --check
+      - name: Verify no entry vanished without a delisting record
+        if: github.event_name == 'pull_request'
+        run: python scripts/check_removals.py --base ${{ github.event.pull_request.base.sha }}
